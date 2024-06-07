@@ -11,7 +11,7 @@
 #
 
 # 修改IP
-sed -i 's/192.168.1.1/192.168.1.2/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 # 发布固件名称添加日期
 sed -i 's/^IMG_PREFIX\:\=.*/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)-$(shell TZ=UTC-8 date +"%Y.%m.%d-%H%M")-$(IMG_PREFIX_VERNUM)$(IMG_PREFIX_VERCODE)$(IMG_PREFIX_EXTRA)$(BOARD)$(if $(SUBTARGET),-$(SUBTARGET))/g' include/image.mk
@@ -26,7 +26,7 @@ curl -sfL https://github.com/leesuncom/R619AC/raw/master/patch/mosdns -o feeds/l
 curl -sfL https://github.com/leesuncom/R619AC/raw/master/patch/base.po -o feeds/luci/modules/luci-base/po/zh-cn/base.po
 
 # 修改主机名字，把OpenWrt-123修改你喜欢的就行（不能纯数字或者使用中文）
-sed -i 's/OpenWrt/NeoBird/g' ./package/base-files/files/bin/config_generate
+sed -i 's/OpenWrt/R619AC/g' ./package/base-files/files/bin/config_generate
 
 # 去除默认bootstrap主题
 sed -i 's/[b|B]ootstrap/argon/g' ./feeds/luci/collections/luci/Makefile
